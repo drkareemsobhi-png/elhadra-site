@@ -48,6 +48,8 @@
     "priceRange": "$$",
     "currenciesAccepted": "EGP",
     "paymentAccepted": "كاش",
+    "maximumAttendeeCapacity": 200,
+    "acceptsReservations": "True",
     "openingHoursSpecification": [{
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"],
@@ -159,20 +161,20 @@
 
   <section class="about dark-texture" id="hall">
     <div class="shell about-grid">
-      <div class="photo-stack" aria-label="صور من قاعة الحضرة">
-        <figure class="photo-main"><img src="img/gallery-1.jpg" alt="قاعة الحضرة بالنجفة الشرقية والمشربيات" loading="lazy"></figure>
-        <figure class="photo-small"><img src="img/gallery-5.jpg" alt="تفاصيل خشب وأرابيسك من قاعة الحضرة" loading="lazy"></figure>
+      <div class="photo-stack" aria-label="صور من صالة الحضرة">
+        <figure class="photo-main"><img src="img/gallery-1.jpg" alt="صالة الحضرة بالنجفة الشرقية والمشربيات" loading="lazy"></figure>
+        <figure class="photo-small"><img src="img/gallery-5.jpg" alt="تفاصيل خشب وأرابيسك من صالة الحضرة" loading="lazy"></figure>
       </div>
       <div class="about-copy">
         <span class="ornament-label">المكان قبل ما تيجي</span>
         <h2>أجواء شرقية<br>تلمّ العيلة</h2>
-        <p>مشربيات وأرابيسك وتفاصيل دافية. القاعة مناسبة لعزومات العيلة والسبوع والاجتماعات، والصواني بتتجهز بالحجز المسبق.</p>
+        <p>مشربيات وأرابيسك وتفاصيل دافية. تعالى اتغدى عادي أي يوم، والصالة بتستوعب عزومات العيلة والمناسبات بالحجز المسبق.</p>
         <div class="facts">
-          <span><b>من ٢٠٢٠</b><small>في مدينة نصر</small></span>
+          <span><b>من ٢٠١٨</b><small>في مدينة نصر</small></span>
           <span><b>كل يوم</b><small>٢ ظهراً — ١٢ ليلاً</small></span>
-          <span><b>حجز مسبق</b><small>للعزومات والمناسبات</small></span>
+          <span><b>٢٠٠ فرد</b><small>سعة الصالة</small></span>
         </div>
-        <a class="gold-button" href="https://wa.me/201030080098?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%82%D8%A7%D8%B9%D8%A9" target="_blank" rel="noopener">اسأل عن حجز القاعة</a>
+        <a class="gold-button" href="https://wa.me/201030080098?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AD%D8%B6%D8%B1%D8%A9" target="_blank" rel="noopener">اسأل عن الحجز</a>
       </div>
     </div>
   </section>
@@ -186,7 +188,7 @@
       </div>
       <div class="gallery-strip">
         <img src="img/dish-sinia-ezz.jpg" alt="صينية العز" loading="lazy">
-        <img src="img/gallery-3.jpg" alt="تفاصيل من قاعة الحضرة" loading="lazy">
+        <img src="img/gallery-3.jpg" alt="مدخل الحضرة من جوه" loading="lazy">
         <img src="img/dish-sinia-kebir.jpg" alt="صينية الكبير أوي" loading="lazy">
         <img src="img/gallery-2.jpg" alt="نجفة الحضرة الشرقية والقبة" loading="lazy">
         <img src="img/dish-mahshi-meshakel.jpg" alt="محشي مشكل" loading="lazy">
@@ -199,7 +201,7 @@
       <div>
         <span class="ornament-label">جاهز تختار؟</span>
         <h2>اطلب أو احجز دلوقتي</h2>
-        <p>ابعتلنا عدد الأفراد ونرشّحلك طلب مناسب، أو اسأل عن حجز القاعة والكاترينج.</p>
+        <p>ابعتلنا عدد الأفراد ونرشّحلك طلب مناسب، أو اسأل عن الحجز للمناسبات والكاترينج.</p>
         <a class="gold-button" href="https://wa.me/201030080098?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%85%D9%86%20%D8%A7%D9%84%D8%AD%D8%B6%D8%B1%D8%A9" target="_blank" rel="noopener">افتح واتساب</a>
       </div>
       <ul>
@@ -207,7 +209,7 @@
         <li><b>العنوان</b><a href="https://www.google.com/maps/place/Elhadra+Restaurant/@30.0727945,31.3469418,17z" target="_blank" rel="noopener">شارع الإمداد والتموين، أمام بوابة فندق الإنتركونتيننتال سيتي ستارز — مدينة نصر</a></li>
         <li><b>التليفون</b><a href="tel:+201030080098" dir="ltr">0103 008 0098</a></li>
         <li><b>الدفع</b><span>كاش فقط عند الاستلام</span></li>
-        <li><b>التوصيل</b><a href="#delivery">57 منطقة — من 40 لـ100 ج حسب المنطقة</a></li>
+        <li><b>التوصيل</b><a href="#delivery">57 منطقة · من 40 لـ100 ج · أقل أوردر 300 ج</a></li>
       </ul>
     </div>
   </section>
@@ -220,6 +222,8 @@
         <i></i>
       </div>
       <ul>
+        <li><b>أقل أوردر</b><span>300 ج</span></li>
+        <li><b>مدة التوصيل</b><span>من 60 لـ70 دقيقة حسب ضغط الطلبات</span></li>
         <li><b>40 ج</b><span>دار الاشارة · دار المدفعية · سيتي ستارز · عمارات السعودية · عمارات رامو · عمارات الفرسان · نادي الفروسية · السبع عمارات · تيفولي دووم · احمد فخري · مكرم عبيد · عباس العقاد</span></li>
         <li><b>50 ج</b><span>الميرغني · عمر ابن الخطاب · مستشفى الطيران · ميدان تريومف · سانت فاتيما · عمار بن ياسر · ميدان الحجاز · ميدان سفير · ميدان المحكمة · ميدان صلاح الدين · ميدان الاسماعيلية · الطيران · حسن المأمون · مساكن شيراتون · حسن الشريف · مصطفى النحاس · سمير عبدالرؤف · الحديقة الدولية · الحي السابع · حي السفارات · الحي الثامن · التبة · احمد الزمر</span></li>
         <li><b>60 ج</b><span>الكوربة · ميدان روكسي · الخليفة المأمون · عمارات العبور · عبد الحميد بدوي · الشيراتون · الحي العاشر · حي الواحة · زهراء مدينة نصر</span></li>
