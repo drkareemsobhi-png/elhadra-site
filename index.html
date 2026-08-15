@@ -62,364 +62,157 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+<span class="top-anchor" id="top" aria-hidden="true"></span>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <g id="i-fire"><path d="M12 2.5c.6 3 2.2 4 3.7 5.7A7.6 7.6 0 0 1 18 13.4a6 6 0 0 1-12 0c0-2.3 1.2-3.9 2.3-5.1.4 1 .9 1.7 1.6 2 .3-3.1.6-5.4 2.1-7.8Z"/><path d="M12 21a3.2 3.2 0 0 0 3.2-3.2c0-1.7-1.4-2.6-2-4-1.3 1.3-2.4 1.9-2.4 3.2 0 .6.2 1 .4 1.4-1 .1-1.6-.5-1.9-1.1-.3.5-.5 1-.5 1.5A3.2 3.2 0 0 0 12 21Z"/></g>
-    <g id="i-plate"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5"/><path d="M12 3.5v-2M12 22.5v-2"/></g>
-    <g id="i-scooter"><circle cx="5.5" cy="17.5" r="2.8"/><circle cx="18" cy="17.5" r="2.8"/><path d="M8.3 17.5h6.9M15.2 17.5l1.6-9h-2.9M4 8.5h5.4l3.1 9"/></g>
-    <g id="i-lantern"><path d="M9 3h6M10 3v2.2c-1.6.9-2.6 2.5-2.6 4.6v5.4h9.2V9.8c0-2.1-1-3.7-2.6-4.6V3"/><path d="M6.6 15.2h10.8v2.4H6.6zM10.5 17.6v2.2M13.5 17.6v2.2M12 8.4l1.6 2.4L12 13.2l-1.6-2.4z"/></g>
-    <g id="i-pot"><path d="M4.5 9h15v5.5a4.5 4.5 0 0 1-4.5 4.5H9a4.5 4.5 0 0 1-4.5-4.5Z"/><path d="M3 9h18M4.5 11.5H2.5M19.5 11.5h2M9 6c0-1.2.6-1.8 1.5-2.5M13.5 6c0-1.2.6-1.8 1.5-2.5"/></g>
-    <g id="i-pin"><path d="M12 21.5s7-5.9 7-11a7 7 0 1 0-14 0c0 5.1 7 11 7 11Z"/><circle cx="12" cy="10.2" r="2.8"/></g>
-    <g id="i-clock"><circle cx="12" cy="12" r="9"/><path d="M12 6.8V12l3.4 2"/></g>
-    <g id="i-chat"><path d="M20.5 12c0 4.1-3.8 7.4-8.5 7.4-1 0-2-.2-2.9-.4L4 20.5l1.6-3.7A6.9 6.9 0 0 1 3.5 12c0-4.1 3.8-7.4 8.5-7.4s8.5 3.3 8.5 7.4Z"/><path d="M8.6 12h.01M12 12h.01M15.4 12h.01"/></g>
-  </defs>
-</svg>
-
-<div class="topbar">
-  <div class="wrap">
-    <div>توصيل شرق القاهرة <span class="dot">•</span> مفتوح يومياً من ٢ الضهر لـ ١٢ بالليل</div>
-    <div class="topbar-alt">للحجز والكاترينج <a class="num" href="tel:+201030080098">0103 008 0098</a></div>
-  </div>
-</div>
-
-<header class="site-header" id="header">
-  <div class="wrap nav-shell">
-    <a class="brand" href="#top">
-      <img src="img/logo.png" alt="شعار الحضرة" width="62" height="62">
-      <span class="brand-copy">
-        <b>الحضرة</b>
-        <small>وللمذاق ملتقى</small>
-      </span>
+<header class="header" id="header">
+  <div class="shell nav-shell">
+    <a class="logo" href="#top" aria-label="الحضرة — الصفحة الرئيسية">
+      <img src="img/logo.png" alt="شعار الحضرة" width="92" height="72">
     </a>
-
     <nav class="nav-links" aria-label="التنقل الرئيسي">
-      <a href="#menu">المنيو</a>
-      <a href="#feast">صواني العزومة</a>
-      <a href="#hall">القاعة والمناسبات</a>
-      <a href="#story">قصتنا</a>
+      <a href="#menu">اختار أكلك</a>
+      <a href="#hall">شوف المكان</a>
       <a href="#contact">تواصل معنا</a>
     </nav>
-
-    <a class="btn btn-gold nav-cta" href="https://wa.me/201030080098?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%85%D9%86%20%D8%A7%D9%84%D8%AD%D8%B6%D8%B1%D8%A9" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.5 14.1c-.2.7-1.3 1.3-1.9 1.3-.5 0-1.1.2-3.6-.8-3-1.3-4.9-4.4-5-4.6-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.2.4-.2.6-.1l2.2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.4Z"/></svg>
-      اطلب على واتساب
-    </a>
-
-    <button class="nav-toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+    <a class="gold-button header-cta" href="https://wa.me/201030080098?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%85%D9%86%20%D8%A7%D9%84%D8%AD%D8%B6%D8%B1%D8%A9" target="_blank" rel="noopener">اطلب الآن</a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="فتح القائمة" aria-expanded="false">☰</button>
   </div>
 </header>
 
 <main id="main">
-  <span id="top"></span>
 
-  <!-- ================= HERO ================= -->
-  <section class="hero">
-    <div class="wrap hero-grid">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-shade"></div>
+    <div class="shell hero-inner">
+      <div class="hero-copy">
+        <span class="ornament-label">من قلب مدينة نصر</span>
+        <h1 id="hero-title">أصل الطعم<br><em>المصري</em></h1>
+        <p>طواجن على نار هادية، مشاوي على الفحم، وصواني تلمّ العيلة. أكل بيتي طازة يتطبخ كل يوم على أصوله.</p>
+        <div class="hero-actions">
+          <a class="gold-button" href="#menu">استكشف المنيو</a>
+          <a class="ghost-button" href="#hall">شوف المكان</a>
+        </div>
+        <div class="hero-trust" aria-label="معلومات سريعة">
+          <span><b>٣٦</b> طبق مصوّر</span>
+          <span><b>٨٨</b> اختيار في المنيو</span>
+          <span><b>يومياً</b> من ٢ لـ١٢</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="menu">
+    <div class="category-band dark-texture">
+      <div class="shell">
+        <div class="section-heading light">
+          <span>اختار على مزاجك</span>
+          <h2>من قائمة الحضرة</h2>
+          <i></i>
+        </div>
+        <div class="category-grid tabs" role="tablist" aria-label="أقسام المنيو">
+          <button class="category tab" role="tab" aria-selected="true" data-group="popular">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 30c0 7 24 7 24 0M10 27h28M14 27c1-8 19-8 20 0"/><path d="M19 18c0-4 3-5 3-8M27 18c0-4 3-5 3-8"/></svg>
+            <b>كل الأشهر</b><small>٣٦ طبق مصوّر</small>
+          </button>
+          <button class="category tab" role="tab" aria-selected="false" data-group="classics">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 35h20M17 33V20h14v13M14 20h20M20 15h8M24 15v-3"/><path d="M12 35h24v4H12z"/></svg>
+            <b>طواجن ومشاوي</b><small>على نار هادية وفحم</small>
+          </button>
+          <button class="category tab" role="tab" aria-selected="false" data-group="platters">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 32h28M14 32a10 10 0 0 1 20 0M24 22v-5M21 17h6"/><path d="M8 36h32"/></svg>
+            <b>محمرات وصواني</b><small>للعيلة والعزومات</small>
+          </button>
+          <button class="category tab" role="tab" aria-selected="false" data-group="sides">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 32h22M16 32l2-15h12l2 15M20 17l2-6h4l2 6"/><path d="M18 37h14"/></svg>
+            <b>مقبلات وجانبي</b><small>تكمل السفرة</small>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="paper-section menu-paper">
+      <div class="shell">
+        <div class="section-heading">
+          <span>اختار بعينك</span>
+          <h2>أطباقنا المميزة</h2>
+          <i></i>
+          <p>صور حقيقية من أكل الحضرة. بدأنا بالمصوّر عشان تقرر بسرعة، والمنيو الكامل موجود بضغطة واحدة.</p>
+        </div>
+        <div class="menu-toolbar">
+          <p class="menu-status" id="menuStatus" aria-live="polite"></p>
+          <button class="black-button menu-toggle" id="menuToggle" type="button" aria-expanded="false">شوف المنيو الكامل (88 صنف)</button>
+        </div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <p class="menu-note">الأسعار بالجنيه المصري ويضاف ١٢٪ خدمة. محتار؟ ابعتلنا عدد الأفراد وإحنا نرشّحلك.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about dark-texture" id="hall">
+    <div class="shell about-grid">
+      <div class="photo-stack" aria-label="صور من قاعة الحضرة">
+        <figure class="photo-main"><img src="img/gallery-1.jpg" alt="مدخل وقاعة الحضرة" loading="lazy"></figure>
+        <figure class="photo-small"><img src="img/gallery-2.jpg" alt="تفاصيل القاعة" loading="lazy"></figure>
+      </div>
+      <div class="about-copy">
+        <span class="ornament-label">المكان قبل ما تيجي</span>
+        <h2>أجواء شرقية<br>تلمّ العيلة</h2>
+        <p>مشربيات وأرابيسك وتفاصيل دافية. القاعة مناسبة لعزومات العيلة والسبوع والاجتماعات، والصواني بتتجهز بالحجز المسبق.</p>
+        <div class="facts">
+          <span><b>من ٢٠٢٠</b><small>في مدينة نصر</small></span>
+          <span><b>كل يوم</b><small>٢ ظهراً — ١٢ ليلاً</small></span>
+          <span><b>حجز مسبق</b><small>للعزومات والمناسبات</small></span>
+        </div>
+        <a class="gold-button" href="https://wa.me/201030080098?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%82%D8%A7%D8%B9%D8%A9" target="_blank" rel="noopener">اسأل عن حجز القاعة</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="paper-section gallery-section" aria-labelledby="gallery-title">
+    <div class="shell">
+      <div class="section-heading">
+        <span>من الحضرة</span>
+        <h2 id="gallery-title">الأكل والمكان في لقطة</h2>
+        <i></i>
+      </div>
+      <div class="gallery-strip">
+        <img src="img/dish-sinia-ezz.jpg" alt="صينية العز" loading="lazy">
+        <img src="img/gallery-3.jpg" alt="تفاصيل من قاعة الحضرة" loading="lazy">
+        <img src="img/dish-sinia-kebir.jpg" alt="صينية الكبير أوي" loading="lazy">
+        <img src="img/gallery-5.jpg" alt="ديكور قاعة الحضرة" loading="lazy">
+        <img src="img/dish-mahshi-meshakel.jpg" alt="محشي مشكل" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="contact dark-texture" id="contact">
+    <div class="shell contact-grid">
       <div>
-        <span class="eyebrow"><i></i> مساكن المهندسين، مدينة نصر — من 2020</span>
-        <h1><span class="h1-line">أكل بيتي مصري</span><br><span class="h1-line accent">على أصوله</span></h1>
-        <p class="hero-lede">
-          طواجن على نار هادية، مشاوي على الفحم، ومحمرات خارجة من الفرن دلوقتي.
-          طبخ يومي طازة، كمية كريمة، وطعم بيوصّلك إحساس مايدة العيلة — سواء في القاعة أو لحد باب بيتك.
-        </p>
-
-        <div class="hero-cta">
-          <a class="btn btn-gold" href="https://wa.me/201030080098?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%85%D9%86%20%D8%A7%D9%84%D8%AD%D8%B6%D8%B1%D8%A9" target="_blank" rel="noopener">اطلب دلوقتي</a>
-          <a class="btn btn-outline" href="#menu">اتفرج على المنيو</a>
-        </div>
-
-        <div class="hero-stats">
-          <div><b>٨٨</b><span>صنف في المنيو</span></div>
-          <div><b>٦</b><span>سنين في خدمة أهل مدينة نصر</span></div>
-          <div><b>٧</b><span>أيام في الأسبوع</span></div>
-        </div>
+        <span class="ornament-label">جاهز تختار؟</span>
+        <h2>اطلب أو احجز دلوقتي</h2>
+        <p>ابعتلنا عدد الأفراد ونرشّحلك طلب مناسب، أو اسأل عن حجز القاعة والكاترينج.</p>
+        <a class="gold-button" href="https://wa.me/201030080098?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%85%D9%86%20%D8%A7%D9%84%D8%AD%D8%B6%D8%B1%D8%A9" target="_blank" rel="noopener">افتح واتساب</a>
       </div>
-
-      <div class="hero-art">
-        <div class="arch">
-          <div class="arch-frame" aria-hidden="true"></div>
-          <img src="img/hero.jpg" alt="سفرة الحضرة — طواجن ومشاوي ومقبلات" loading="eager">
-        </div>
-        <div class="hero-badge">
-          <span class="ico"><svg viewBox="0 0 24 24"><use href="#i-pot"/></svg></span>
-          <span>
-            <b>يتطبخ كل يوم من أول وجديد</b>
-            <span>مفيش تسخين، مفيش تخزين</span>
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="marquee" aria-hidden="true">
-    <!-- الأسماء دي لازم تفضل مطابقة لـ MENU تحت. لو صنف اتشال أو اتغيّر
-         اسمه في المنيو، غيّره هنا كمان — النص مكرر مرتين للأنيميشن. -->
-    <div class="marquee-track">
-      <span>شواية الحضرة</span><span>طاجن عكاوي</span><span>فتة موزة ضاني</span><span>حمام محشي ارز</span>
-      <span>طاسة الحضرة</span><span>صينية الكنز</span><span>كباب بتلو</span><span>طرب ضاني</span>
-      <span>شواية الحضرة</span><span>طاجن عكاوي</span><span>فتة موزة ضاني</span><span>حمام محشي ارز</span>
-      <span>طاسة الحضرة</span><span>صينية الكنز</span><span>كباب بتلو</span><span>طرب ضاني</span>
-    </div>
-  </div>
-
-  <!-- ================= WHY ================= -->
-  <section class="sec why">
-    <div class="wrap">
-      <div class="sec-head center">
-        <span class="kicker">ليه الحضرة</span>
-        <h2>مطعم بيطبخ زي البيت، بس بمعايير مطعم</h2>
-      </div>
-
-      <div class="why-grid">
-        <article class="why-card">
-          <span class="ico"><svg viewBox="0 0 24 24"><use href="#i-fire"/></svg></span>
-          <h3>طبخ يومي طازة</h3>
-          <p>الطواجن بتتطبخ على نار هادية كل يوم الصبح. اللي بيخلص بيخلص — مفيش أكل بيات.</p>
-        </article>
-        <article class="why-card">
-          <span class="ico"><svg viewBox="0 0 24 24"><use href="#i-plate"/></svg></span>
-          <h3>كمية كريمة</h3>
-          <p>الطبق عندنا مليان بجد. أوزان المشاوي معلنة بالجرام في المنيو من غير لف ودوران.</p>
-        </article>
-        <article class="why-card">
-          <span class="ico"><svg viewBox="0 0 24 24"><use href="#i-scooter"/></svg></span>
-          <h3>توصيل لحد الباب</h3>
-          <p>مدينة نصر ومصر الجديدة والتجمع وشيراتون والمناطق القريبة. اطلب على واتساب والأوردر يوصلك سخن ومتغلّف كويس.</p>
-        </article>
-        <article class="why-card">
-          <span class="ico"><svg viewBox="0 0 24 24"><use href="#i-lantern"/></svg></span>
-          <h3>قاعة للمناسبات</h3>
-          <p>عزومات العيلة، السبوع، والاجتماعات. قاعة بديكور شرقي وصواني بالحجز المسبق.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= MENU ================= -->
-  <section class="sec" id="menu">
-    <div class="wrap">
-      <div class="sec-head center">
-        <span class="kicker">المنيو</span>
-        <h2>من مطبخ الحضرة</h2>
-        <p>أكلات مصرية أصيلة اتطبخت بنفس الوصفات من أول يوم. اختار القسم اللي يعجبك.</p>
-      </div>
-
-      <div class="tabs" role="tablist" aria-label="أقسام المنيو">
-        <button class="tab" role="tab" aria-selected="true" data-cat="tajin">طواجن الحضرة</button>
-        <button class="tab" role="tab" aria-selected="false" data-cat="grill">مشوي على الفحم</button>
-        <button class="tab" role="tab" aria-selected="false" data-cat="oven">محمرات وحلل</button>
-        <button class="tab" role="tab" aria-selected="false" data-cat="fatteh">فتة وصواني</button>
-        <button class="tab" role="tab" aria-selected="false" data-cat="starter">شوربة ومقبلات وجانبي</button>
-      </div>
-
-      <div class="menu-grid" id="menuGrid"></div>
-
-      <p class="menu-note">الأسعار بالجنيه المصري ويضاف ١٢٪ خدمة. المنيو الكامل معروض هنا — ولو محتاج تفاصيل أكتر عن أي صنف، اطلب على واتساب.</p>
-    </div>
-  </section>
-
-  <!-- ================= FEAST ================= -->
-  <section class="sec feast" id="feast">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="kicker">لما العيلة تتجمع</span>
-        <h2>صواني العزومة</h2>
-        <p>لما تكون العزومة كبيرة، مش وقت الطلبات الفردية. دي الصواني اللي بتتحط في نص السفرة وتكفي الكل.</p>
-      </div>
-
-      <div class="feast-grid">
-        <ul class="feast-list">
-          <!-- الأصناف دي لازم تفضل موجودة في MENU تحت. تحقّق قبل أي تعديل. -->
-          <li>
-            <span class="n">١</span>
-            <span>
-              <b>صينية الكبير اوي</b>
-              <span>أكبر صواني الحضرة — ٢٩٩٩ ج.</span>
-            </span>
-          </li>
-          <li>
-            <span class="n">٢</span>
-            <span>
-              <b>صينية الكنز</b>
-              <span>٢٧٠٠ ج.</span>
-            </span>
-          </li>
-          <li>
-            <span class="n">٣</span>
-            <span>
-              <b>شواية الحضرة</b>
-              <span>مشكل ريش ضاني، كفتة، طاووق، وكباب — يُقدَّم مع أرز بسمتي. ١٨٠٠ ج.</span>
-            </span>
-          </li>
-          <li>
-            <span class="n">٤</span>
-            <span>
-              <b>صينية العيلة</b>
-              <span>١٦٥٠ ج.</span>
-            </span>
-          </li>
-        </ul>
-
-        <div>
-          <figure class="feast-media"><img src="img/feast.jpg" alt="طاولة معدّة للعزومة في قاعة الحضرة" loading="lazy"></figure>
-          <a class="btn btn-gold feast-cta" href="https://wa.me/201030080098?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D8%B5%D9%8A%D9%86%D9%8A%D8%A9%20%D8%B9%D8%B2%D9%88%D9%85%D8%A9" target="_blank" rel="noopener">احجز صينية العزومة</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= HALL ================= -->
-  <section class="sec" id="hall">
-    <div class="wrap">
-      <div class="sec-head center">
-        <span class="kicker">القاعة والمناسبات</span>
-        <h2>مكان بيشبه الأكل اللي جواه</h2>
-        <p>مشربيات، نجف نحاس، وأرابيسك. قاعة الحضرة اتعملت عشان العزومة تبقى ذكرى مش أكلة.</p>
-      </div>
-
-      <div class="hall-grid">
-        <figure class="tall"><img src="img/gallery-1.jpg" alt="مدخل مطعم الحضرة" loading="lazy"></figure>
-        <figure><img src="img/gallery-2.jpg" alt="قاعة الحضرة الرئيسية" loading="lazy"></figure>
-        <figure><img src="img/gallery-3.jpg" alt="نجفة نحاسية في سقف القاعة" loading="lazy"></figure>
-        <figure class="tall"><img src="img/gallery-4.jpg" alt="تمثال التنورة على مايدة الحضرة" loading="lazy"></figure>
-        <figure><img src="img/gallery-5.jpg" alt="الديكور الداخلي بالأرابيسك" loading="lazy"></figure>
-        <figure><img src="img/gallery-6.jpg" alt="سفرة عزومة كاملة في قاعة الحضرة" loading="lazy"></figure>
-      </div>
-
-      <div class="catering">
-        <div>
-          <h3>كاترينج ومناسبات</h3>
-          <p>سبوع، عزومة عيلة، اجتماع شغل، أو مناسبة كبيرة — بنجهّز الصواني والتغليف على مقاس عدد الضيوف. كلمنا قبلها بيوم على الأقل.</p>
-        </div>
-        <a class="btn btn-ink" href="https://wa.me/201030080098?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%A3%D9%84%20%D8%B9%D9%86%20%D8%A7%D9%84%D9%83%D8%A7%D8%AA%D8%B1%D9%86%D8%AC" target="_blank" rel="noopener">اطلب عرض سعر</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= STORY ================= -->
-  <section class="sec story" id="story">
-    <div class="wrap story-grid">
-      <figure class="story-media"><img src="img/story.jpg" alt="تفاصيل من ديكور قاعة الحضرة" loading="lazy"></figure>
-      <div class="story-body">
-        <span class="kicker">قصتنا</span>
-        <h2 class="story-title">اسمها الحضرة… ومعناها إن الكل حاضر</h2>
-        <p>
-          بدأنا في مساكن المهندسين بمدينة نصر بفكرة واحدة: إن الأكل المصري مايستاهلش يتقدّم بنص جودة.
-          فطبخنا زي ما بتتطبخ الأكلة في البيت — نار هادية، وقت كفاية، وخلطة بهارات بنعملها بنفسنا.
-        </p>
-        <p>
-          من ساعتها والحضرة بقت المكان اللي العيلة بتيجي له في المناسبة، والمكان اللي بيوصّل الغدا للشغل،
-          والمكان اللي بيجهّز صواني العزومة الكبيرة. الأكل هو نفسه — بس الطريقة اللي بيوصلك بيها بتفرق.
-        </p>
-        <blockquote class="story-quote">«وللمذاق ملتقى» — مش شعار، ده اللي بنشتغل عليه كل يوم.</blockquote>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CONTACT ================= -->
-  <section class="sec" id="contact">
-    <div class="wrap">
-      <div class="sec-head center">
-        <span class="kicker">تواصل معنا</span>
-        <h2>إحنا فين وإزاي توصلنا</h2>
-      </div>
-
-      <div class="contact-grid">
-        <article class="info-card">
-          <span class="ico"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg></span>
-          <h3>العنوان</h3>
-          <p>شارع الإمداد والتموين<br>مساكن المهندسين، مدينة نصر<br>القاهرة</p>
-          <p class="info-extra">
-            <a class="link" href="https://maps.google.com/?q=El+Hadra+Restaurant+Nasr+City+Cairo" target="_blank" rel="noopener">افتح على خرائط جوجل</a>
-          </p>
-        </article>
-
-        <article class="info-card">
-          <span class="ico"><svg viewBox="0 0 24 24"><use href="#i-clock"/></svg></span>
-          <h3>مواعيد العمل</h3>
-          <ul class="hours">
-            <li><b>كل أيام الأسبوع</b><span>٢ الضهر — ١٢ بالليل</span></li>
-          </ul>
-          <p class="info-extra">مفتوح يومياً من غير إجازة أسبوعية.</p>
-        </article>
-
-        <article class="info-card">
-          <span class="ico"><svg viewBox="0 0 24 24"><use href="#i-chat"/></svg></span>
-          <h3>اطلب أو احجز</h3>
-          <p>الأوردرات والحجز والكاترينج كلها على نفس الرقم.</p>
-          <p><b>مناطق التوصيل:</b> مدينة نصر، مصر الجديدة، التجمع، شيراتون، والمناطق القريبة — كلّمنا نتأكد من التغطية وسعر التوصيل لمنطقتك.</p>
-          <p><a class="link num" href="tel:+201030080098">0103 008 0098</a></p>
-          <p class="info-cta">
-            <a class="btn btn-gold" href="https://wa.me/201030080098?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%85%D9%86%20%D8%A7%D9%84%D8%AD%D8%B6%D8%B1%D8%A9" target="_blank" rel="noopener">افتح واتساب</a>
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= FINAL CTA ================= -->
-  <section class="final">
-    <div class="wrap">
-      <h2>سفرة الحضرة مستنياك</h2>
-      <p>ابعتلنا على واتساب واحنا نرشّحلك الطلب المناسب لعدد الأفراد — وبنبعتلك المنيو الكامل بالأسعار.</p>
-      <div class="btns">
-        <a class="btn btn-gold" href="https://wa.me/201030080098?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%85%D9%86%20%D8%A7%D9%84%D8%AD%D8%B6%D8%B1%D8%A9" target="_blank" rel="noopener">اطلب على واتساب</a>
-        <a class="btn btn-ghost" href="tel:+201030080098">اتصل بينا</a>
-      </div>
+      <ul>
+        <li><b>المواعيد</b><span>يومياً من ٢ الضهر لـ١٢ بالليل</span></li>
+        <li><b>العنوان</b><a href="https://maps.google.com/?q=El+Hadra+Restaurant+Nasr+City+Cairo" target="_blank" rel="noopener">شارع الإمداد والتموين، مساكن المهندسين، مدينة نصر</a></li>
+        <li><b>التليفون</b><a href="tel:+201030080098" dir="ltr">0103 008 0098</a></li>
+      </ul>
     </div>
   </section>
 </main>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-brand">
-          <img src="img/logo.png" alt="" aria-hidden="true">
-          <b>الحضرة</b>
-        </div>
-        <p class="foot-about">
-          أكل مصري بيتي على أصوله — طواجن، مشاوي، ومحمرات.
-          مساكن المهندسين، مدينة نصر، القاهرة.
-        </p>
-      </div>
-
-      <div>
-        <h4>الموقع</h4>
-        <ul>
-          <li><a href="#menu">المنيو</a></li>
-          <li><a href="#feast">صواني العزومة</a></li>
-          <li><a href="#hall">القاعة والمناسبات</a></li>
-          <li><a href="#story">قصتنا</a></li>
-          <li><a href="#contact">تواصل معنا</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4>تواصل</h4>
-        <ul>
-          <li><a href="https://wa.me/201030080098" target="_blank" rel="noopener">واتساب — <span class="num">0103 008 0098</span></a></li>
-          <li><a href="tel:+201030080098">اتصال — <span class="num">0103 008 0098</span></a></li>
-          <li><a href="https://www.facebook.com/elhadra.rest" target="_blank" rel="noopener">فيسبوك</a></li>
-          <li><a href="https://www.instagram.com/elhadra.rest" target="_blank" rel="noopener">إنستجرام</a></li>
-          <li><a href="https://www.tiktok.com/@elhadra_restaurant" target="_blank" rel="noopener">تيك توك</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="foot-bottom">
-      <span>© <span id="year">2026</span> الحضرة — كل الحقوق محفوظة.</span>
-      <span>elhadragroup.com</span>
-    </div>
+<footer class="footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand"><img src="img/logo.png" alt=""><b>الحضرة</b><span>أكل مصري بيتي على أصوله</span></div>
+    <div><b>روابط سريعة</b><a href="#menu">الأطباق</a><a href="#hall">المكان</a><a href="#contact">تواصل معنا</a></div>
+    <div><b>تابعنا</b><a href="https://www.facebook.com/elhadra.rest" target="_blank" rel="noopener">فيسبوك</a><a href="https://www.instagram.com/elhadra.rest" target="_blank" rel="noopener">إنستجرام</a><a href="https://www.tiktok.com/@elhadra_restaurant" target="_blank" rel="noopener">تيك توك</a></div>
   </div>
+  <p>© <span id="year">2026</span> الحضرة — كل الحقوق محفوظة.</p>
 </footer>
 
-<a class="fab" href="https://wa.me/201030080098?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%85%D9%86%20%D8%A7%D9%84%D8%AD%D8%B6%D8%B1%D8%A9" target="_blank" rel="noopener" aria-label="اطلب على واتساب">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.5 14.1c-.2.7-1.3 1.3-1.9 1.3-.5 0-1.1.2-3.6-.8-3-1.3-4.9-4.4-5-4.6-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.2.4-.2.6-.1l2.2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.4Z"/></svg>
-  اطلب دلوقتي
-</a>
+<a class="whatsapp" href="https://wa.me/201030080098?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%85%D9%86%20%D8%A7%D9%84%D8%AD%D8%B6%D8%B1%D8%A9" target="_blank" rel="noopener">اطلب دلوقتي</a>
 
 <script>
 /* ============================================================================
@@ -540,21 +333,44 @@ const MENU = {
 
 const grid = document.getElementById("menuGrid");
 const tabs = [...document.querySelectorAll(".tab")];
+const menuToggle = document.getElementById("menuToggle");
+const menuStatus = document.getElementById("menuStatus");
+const GROUPS = {
+  popular: ["tajin", "grill", "oven", "fatteh", "starter"],
+  classics: ["tajin", "grill"],
+  platters: ["oven", "fatteh"],
+  sides: ["starter"]
+};
+let activeGroup = "popular";
+let fullMenu = false;
 
-function render(cat) {
-  grid.innerHTML = MENU[cat].map(function (i) {
-    return '<article class="dish' + (i.star ? ' is-star' : '') + (i.img ? ' has-media' : '') + '">' +
+function groupItems(group) {
+  return GROUPS[group].reduce(function (items, cat) {
+    return items.concat(MENU[cat]);
+  }, []);
+}
+
+function render(group) {
+  const allItems = groupItems(group);
+  const visibleItems = fullMenu ? allItems : allItems.filter(function (i) { return i.img; });
+  grid.innerHTML = visibleItems.map(function (i) {
+    return '<article class="dish-card ' + (i.star ? 'is-star ' : '') + (i.img ? 'has-media' : 'no-media') + '">' +
       (i.img
         ? '<figure class="dish-media"><img src="img/' + i.img + '" alt="' + i.n + '" loading="lazy" decoding="async"></figure>'
         : '') +
-      '<div class="dish-top">' +
-        '<h3>' + i.n + '</h3>' +
-        '<span class="price">' + i.p + ' ج' + (i.unit ? '<small>' + i.unit + '</small>' : '') + '</span>' +
+      '<div class="dish-card-body">' +
+        '<div class="dish-head">' +
+          '<h3>' + i.n + '</h3>' +
+          '<span class="price">' + i.p + ' ج' + (i.unit ? '<small>' + i.unit + '</small>' : '') + '</span>' +
+        '</div>' +
+        (i.d ? '<p>' + i.d + '</p>' : '') +
+        (i.tag ? '<span class="tag">' + i.tag + '</span>' : '') +
       '</div>' +
-      (i.d ? '<p>' + i.d + '</p>' : '') +
-      (i.tag ? '<span class="tag">' + i.tag + '</span>' : '') +
     '</article>';
   }).join("");
+  menuStatus.textContent = fullMenu
+    ? "ظاهر " + visibleItems.length + " اختيار في القسم ده"
+    : "ظاهر " + visibleItems.length + " طبق مصوّر يساعدك تختار بسرعة";
 }
 
 /* على الموبايل شريط التبويبات بيتزحلق أفقياً — لازم التبويب المختار
@@ -572,12 +388,21 @@ tabs.forEach(function (t) {
   t.addEventListener("click", function () {
     tabs.forEach(function (x) { x.setAttribute("aria-selected", "false"); });
     t.setAttribute("aria-selected", "true");
-    render(t.dataset.cat);
+    activeGroup = t.dataset.group;
+    render(activeGroup);
     revealTab(t);
   });
 });
 
-render("tajin");
+menuToggle.addEventListener("click", function () {
+  fullMenu = !fullMenu;
+  menuToggle.setAttribute("aria-expanded", String(fullMenu));
+  menuToggle.textContent = fullMenu ? "ارجع للأشهر المصوّرة" : "شوف المنيو الكامل (88 صنف)";
+  render(activeGroup);
+  if (!fullMenu) document.getElementById("menu").scrollIntoView({ behavior: "smooth" });
+});
+
+render(activeGroup);
 
 /* mobile nav */
 const header = document.getElementById("header");
