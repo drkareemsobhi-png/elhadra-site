@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c0a08">
+<title>اطلب من الحضرة — توصيل مدينة نصر ومصر الجديدة</title>
+<meta name="description" content="اطلب أكل الحضرة أونلاين — طواجن ومشاوي فحم ومحمرات وصواني. توصيل لـ57 منطقة، الدفع كاش عند الاستلام.">
+<link rel="canonical" href="https://elhadragroup.com/order.html">
+<link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
+<link rel="apple-touch-icon" href="img/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0c0a08;--panel:#15110d;--gold:#d8a83f;--gold-light:#f0ce79;--cream:#f3e9d6;--line:rgba(216,168,63,.22);--muted:#a2937a;--err:#e0664f}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--black);color:var(--cream);font-family:"Cairo",system-ui,sans-serif;font-size:15px;line-height:1.7;padding-bottom:120px}
+a{color:inherit}
+.shell{width:min(calc(100% - 28px),980px);margin-inline:auto}
+header.top{position:sticky;top:0;z-index:50;background:rgba(12,10,8,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:66px}
+.top-in img{width:64px;height:auto}
+.back{font-size:12px;font-weight:700;color:var(--muted);text-decoration:none}
+.hours{padding:12px 0;font-size:12px;color:var(--muted);border-bottom:1px solid var(--line)}
+.hours b{color:var(--gold-light)}
+h1{font-family:"Amiri",serif;font-size:34px;margin:26px 0 4px;color:var(--gold-light)}
+.sub{margin:0 0 18px;font-size:13px;color:var(--muted)}
+.cats{position:sticky;top:66px;z-index:40;display:flex;gap:8px;overflow-x:auto;padding:12px 0;background:var(--black);border-bottom:1px solid var(--line);scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.cats button{flex:0 0 auto;padding:9px 14px;border:1px solid var(--line);background:transparent;color:var(--cream);font:700 12px "Cairo",sans-serif;cursor:pointer;border-radius:2px}
+.cats button.on{background:var(--gold);color:#171106;border-color:var(--gold)}
+h2.cat{font-family:"Amiri",serif;font-size:26px;color:var(--gold-light);margin:30px 0 12px;padding-top:8px}
+.item{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(216,168,63,.12)}
+.item h3{margin:0 0 4px;font-size:14.5px;font-weight:700}
+.item .price{font-size:13px;color:var(--gold);font-weight:900}
+.item .price small{color:var(--muted);font-weight:600;font-size:11px}
+.step{display:flex;align-items:center;gap:10px}
+.step button{width:34px;height:34px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-size:19px;font-weight:900;line-height:1;cursor:pointer;border-radius:2px}
+.step button:disabled{opacity:.3;cursor:default}
+.step .q{min-width:22px;text-align:center;font-weight:900}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--panel);border-top:1px solid var(--gold);padding:12px 0}
+.bar-in{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.bar .sum{font-size:12px;color:var(--muted)}
+.bar .sum b{display:block;font-size:17px;color:var(--gold-light)}
+.wabtn{padding:13px 22px;border:0;background:var(--gold);color:#171106;font:900 14px "Cairo",sans-serif;cursor:pointer;border-radius:2px}
+.wabtn:disabled{opacity:.5;cursor:default}
+.mask{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.72);display:none}
+.mask.on{display:block}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:80;max-height:92vh;overflow-y:auto;background:var(--panel);border-top:1px solid var(--gold);transform:translateY(100%);transition:transform .25s}
+.sheet.on{transform:none}
+.sheet-in{width:min(calc(100% - 28px),620px);margin-inline:auto;padding:22px 0 34px}
+.sheet h3{display:flex;align-items:center;gap:8px;font-family:"Amiri",serif;font-size:24px;color:var(--gold-light);margin:0 0 14px}
+.lines{margin:0 0 16px;font-size:13px}
+.lines div{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid rgba(216,168,63,.1)}
+.tot{display:flex;justify-content:space-between;font-size:15px;font-weight:900;color:var(--gold-light);padding:10px 0 16px}
+label{display:block;margin:12px 0 5px;font-size:12px;font-weight:700;color:var(--gold)}
+input,select,textarea{width:100%;padding:12px;background:#0e0b08;border:1px solid var(--line);color:var(--cream);font:400 14px "Cairo",sans-serif;border-radius:2px}
+input.err,select.err,textarea.err{border-color:var(--err)}
+textarea{min-height:74px;resize:vertical}
+.msg{display:none;margin:14px 0 0;padding:11px;background:rgba(224,102,79,.12);border:1px solid var(--err);color:#f0b3a6;font-size:13px;border-radius:2px}
+.msg.on{display:block}
+.note{margin:14px 0 0;font-size:12px;color:var(--muted);line-height:1.9}
+.closed{margin:0 0 16px;padding:12px;border:1px solid var(--err);color:#f0b3a6;font-size:13px;border-radius:2px}
+.x{background:none;border:0;color:var(--muted);font-size:26px;cursor:pointer;margin-inline-start:auto;line-height:1}
+@media(max-width:520px){h1{font-size:28px}.item{grid-template-columns:1fr auto}}
+</style>
+  <script src="pixel.js"></script>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" alt=""
+  src="https://www.facebook.com/tr?id=423846121992439&ev=PageView&noscript=1"></noscript>
+<header class="top"><div class="shell top-in">
+  <a href="index.html" aria-label="الحضرة"><img src="img/logo.png" alt="شعار الحضرة" width="64" height="50"></a>
+  <a class="back" href="index.html">‹ ارجع للموقع</a>
+</div></header>
+
+<div class="shell">
+  <div class="hours" id="hoursNote"></div>
+  <h1>اطلب من الحضرة</h1>
+  <p class="sub">الدفع كاش عند الاستلام · أقل أوردر 300 ج · الأسعار من غير خدمة</p>
+</div>
+
+<div class="shell"><div class="cats" id="cats"></div></div>
+<div class="shell" id="menu"></div>
+
+<div class="bar" id="bar" hidden><div class="shell bar-in">
+  <div class="sum"><span id="barCount">0 صنف</span><b id="barTotal">0 ج</b></div>
+  <button class="wabtn" id="openSheet" type="button">اتمم الأوردر</button>
+</div></div>
+
+<div class="mask" id="mask"></div>
+<section class="sheet" id="sheet" aria-hidden="true"><div class="sheet-in" id="sheetIn"></div></section>
+
+<script src="order-client.js"></script>
+<script>
+var MENU = [
+ {
+  "key": "tajin",
+  "label": "طواجن الحضرة",
+  "items": [
+   {
+    "id": "i1",
+    "n": "طاجن عكاوي",
+    "p": 470,
+    "unit": "",
+    "img": "dish-tagen-okawi.jpg"
+   },
+   {
+    "id": "i2",
+    "n": "طاجن ورق عنب بالكوارع",
+    "p": 430,
+    "unit": "",
+    "img": "dish-warak-enab-kawaree.jpg"
+   },
+   {
+    "id": "i3",
+    "n": "طاجن ارز معمر باللحمة والقشطة",
+    "p": 390,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i4",
+    "n": "طاجن ارز معمر بالحمام والقشطة",
+    "p": 305,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i5",
+    "n": "طاجن ارز معمر بالفراخ والقشطة",
+    "p": 270,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i6",
+    "n": "طاجن ارز معمر بالقشطة",
+    "p": 165,
+    "unit": "",
+    "img": "dish-roz-moammar.jpg"
+   },
+   {
+    "id": "i7",
+    "n": "طاجن لحمة بالبصل",
+    "p": 310,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i8",
+    "n": "طاجن لسان عصفور باللحمة",
+    "p": 270,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i9",
+    "n": "طاجن مسقعة باللحمة المفرومة",
+    "p": 175,
+    "unit": "",
+    "img": "dish-mosaqaa-lahma.jpg"
+   },
+   {
+    "id": "i10",
+    "n": "طاجن مسقعة سادة",
+    "p": 90,
+    "unit": "",
+    "img": "dish-mosaqaa-sada.jpg"
+   },
+   {
+    "id": "i11",
+    "n": "طاجن مكرونة بشاميل",
+    "p": 185,
+    "unit": "",
+    "img": "dish-macarona-bechamel.jpg"
+   },
+   {
+    "id": "i12",
+    "n": "طاجن ملوخية باللحمة",
+    "p": 320,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i13",
+    "n": "طاجن ملوخية سادة",
+    "p": 80,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i14",
+    "n": "طاجن بامية باللحمة",
+    "p": 330,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i15",
+    "n": "طاجن بامية سادة",
+    "p": 90,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i16",
+    "n": "طاجن بطاطس باللحمة",
+    "p": 320,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i17",
+    "n": "طاجن بطاطس سادة",
+    "p": 75,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i18",
+    "n": "طاجن بسلة باللحمة",
+    "p": 320,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i19",
+    "n": "طاجن بسلة بالجزر",
+    "p": 85,
+    "unit": "",
+    "img": ""
+   }
+  ]
+ },
+ {
+  "key": "grill",
+  "label": "مشوي على الفحم",
+  "items": [
+   {
+    "id": "i20",
+    "n": "شواية الحضرة",
+    "p": 1800,
+    "unit": "",
+    "img": "dish-mashwi-mix.jpg"
+   },
+   {
+    "id": "i21",
+    "n": "موزة ضاني مع ارز بسمتي",
+    "p": 795,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i22",
+    "n": "ريش ضاني 500 جرام",
+    "p": 775,
+    "unit": "",
+    "img": "dish-rish-dany.jpg"
+   },
+   {
+    "id": "i23",
+    "n": "كباب ضاني",
+    "p": 380,
+    "unit": "/ ربع كيلو",
+    "img": "dish-kabab-dany.jpg"
+   },
+   {
+    "id": "i24",
+    "n": "طرب ضاني",
+    "p": 345,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i25",
+    "n": "كباب وكفتة",
+    "p": 340,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i26",
+    "n": "نصف فراخ مسحب مع ارز بسمتي",
+    "p": 325,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i27",
+    "n": "كفتة ضاني",
+    "p": 295,
+    "unit": "/ ربع كيلو",
+    "img": ""
+   },
+   {
+    "id": "i28",
+    "n": "سجق",
+    "p": 295,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i29",
+    "n": "نصف فراخ مشوي",
+    "p": 225,
+    "unit": "",
+    "img": "dish-nos-farkha.jpg"
+   },
+   {
+    "id": "i30",
+    "n": "صدور دجاج مشوية",
+    "p": 195,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i31",
+    "n": "شيش طاووق",
+    "p": 175,
+    "unit": "/ ربع كيلو",
+    "img": "dish-shish-tawook.jpg"
+   }
+  ]
+ },
+ {
+  "key": "oven",
+  "label": "محمرات وحلل",
+  "items": [
+   {
+    "id": "i32",
+    "n": "حمام محشي ارز",
+    "p": 245,
+    "unit": "",
+    "img": "dish-hamam.jpg"
+   },
+   {
+    "id": "i33",
+    "n": "حلة هبرة ضاني بورق العنب",
+    "p": 820,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i34",
+    "n": "حلة هبرة ضاني بالبطاطس",
+    "p": 795,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i35",
+    "n": "حلة ريش ضاني بورق العنب",
+    "p": 695,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i36",
+    "n": "حلة ريش ضاني بالبطاطس",
+    "p": 670,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i37",
+    "n": "نصف بط محمر على ورق عنب",
+    "p": 425,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i38",
+    "n": "نصف بط محمر على ارز شعرية",
+    "p": 395,
+    "unit": "",
+    "img": "dish-half-duck.jpg"
+   },
+   {
+    "id": "i39",
+    "n": "لحمة محمرة مع ارز شعرية",
+    "p": 295,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i40",
+    "n": "نص فرخة محمرة مع ارز بالشعرية",
+    "p": 240,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i41",
+    "n": "حواوشي",
+    "p": 130,
+    "unit": "",
+    "img": "dish-hawawshi.jpg"
+   }
+  ]
+ },
+ {
+  "key": "fatteh",
+  "label": "فتة وصواني",
+  "items": [
+   {
+    "id": "i42",
+    "n": "فتة موزة ضاني",
+    "p": 795,
+    "unit": "",
+    "img": "dish-fatta-moza.jpg"
+   },
+   {
+    "id": "i43",
+    "n": "فتة هبرة ضاني",
+    "p": 795,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i44",
+    "n": "فتة كوارع",
+    "p": 395,
+    "unit": "",
+    "img": "dish-fatta-kawaree.jpg"
+   },
+   {
+    "id": "i45",
+    "n": "فتة لحم كندوز",
+    "p": 325,
+    "unit": "",
+    "img": "dish-fatta-kandoz.jpg"
+   },
+   {
+    "id": "i46",
+    "n": "صينية الكبير اوي",
+    "p": 2999,
+    "unit": "",
+    "img": "dish-sinia-kebir.jpg"
+   },
+   {
+    "id": "i47",
+    "n": "صينية الكنز",
+    "p": 2700,
+    "unit": "",
+    "img": "dish-sinia-kanz.jpg"
+   },
+   {
+    "id": "i48",
+    "n": "صينية العمدة",
+    "p": 2550,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i49",
+    "n": "صينية الكينج",
+    "p": 2490,
+    "unit": "",
+    "img": "dish-sinia-king.jpg"
+   },
+   {
+    "id": "i50",
+    "n": "صينية العز",
+    "p": 1999,
+    "unit": "",
+    "img": "dish-sinia-ezz.jpg"
+   },
+   {
+    "id": "i51",
+    "n": "صينية أهل البلد",
+    "p": 1950,
+    "unit": "",
+    "img": "dish-sinia-ahl-elbalad.jpg"
+   },
+   {
+    "id": "i52",
+    "n": "صينية العيلة",
+    "p": 1650,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i53",
+    "n": "صينية الدراويش",
+    "p": 1550,
+    "unit": "",
+    "img": "dish-sinia-darawish.jpg"
+   },
+   {
+    "id": "i54",
+    "n": "صينية مولانا",
+    "p": 1300,
+    "unit": "",
+    "img": "dish-sinia-mawlana.jpg"
+   },
+   {
+    "id": "i55",
+    "n": "تنورة الحضرة",
+    "p": 1300,
+    "unit": "",
+    "img": "dish-tanoura-hadra.jpg"
+   },
+   {
+    "id": "i56",
+    "n": "صينية الصحاب",
+    "p": 1200,
+    "unit": "",
+    "img": "dish-sinia-so7ab.jpg"
+   },
+   {
+    "id": "i57",
+    "n": "صينية محاشي",
+    "p": 650,
+    "unit": "",
+    "img": "dish-sinia-mahashi.jpg"
+   }
+  ]
+ },
+ {
+  "key": "starter",
+  "label": "شوربة ومقبلات وجانبي",
+  "items": [
+   {
+    "id": "i58",
+    "n": "شوربة كوارع",
+    "p": 199,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i59",
+    "n": "شوربة لسان عصفور",
+    "p": 50,
+    "unit": "",
+    "img": "dish-shorbet-lesan.jpg"
+   },
+   {
+    "id": "i60",
+    "n": "طاسة الحضرة",
+    "p": 730,
+    "unit": "",
+    "img": "dish-tasa-hadra.jpg"
+   },
+   {
+    "id": "i61",
+    "n": "طاسة لحمة بلدي",
+    "p": 270,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i62",
+    "n": "طاسة كبدة بلدي",
+    "p": 250,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i63",
+    "n": "طاسة سجق بلدي",
+    "p": 250,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i64",
+    "n": "مقبلات مشكلة",
+    "p": 350,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i65",
+    "n": "جلاش باللحمة المفرومة",
+    "p": 250,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i66",
+    "n": "ممبار",
+    "p": 110,
+    "unit": "",
+    "img": "dish-momabar.jpg"
+   },
+   {
+    "id": "i67",
+    "n": "محشي مشكل",
+    "p": 110,
+    "unit": "",
+    "img": "dish-mahshi-meshakel.jpg"
+   },
+   {
+    "id": "i68",
+    "n": "سمبوسك لحمة",
+    "p": 95,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i69",
+    "n": "ورق عنب",
+    "p": 90,
+    "unit": "",
+    "img": "dish-warak-enab.jpg"
+   },
+   {
+    "id": "i70",
+    "n": "سمبوسك جبنة",
+    "p": 75,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i71",
+    "n": "ارز بسمتي بالزبيب",
+    "p": 75,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i72",
+    "n": "فتة سادة",
+    "p": 75,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i73",
+    "n": "مكرونة بالصلصة",
+    "p": 65,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i74",
+    "n": "بطاطس محمرة",
+    "p": 55,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i75",
+    "n": "ارز شعرية",
+    "p": 50,
+    "unit": "",
+    "img": "dish-roz-sheireya.jpg"
+   },
+   {
+    "id": "i76",
+    "n": "ارز ابيض",
+    "p": 45,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i77",
+    "n": "سلطة طحينة",
+    "p": 35,
+    "unit": "",
+    "img": "dish-salata-tehina.jpg"
+   },
+   {
+    "id": "i78",
+    "n": "سلطة بابا غنوج",
+    "p": 35,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i79",
+    "n": "سلطة زبادي",
+    "p": 35,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i80",
+    "n": "باذنجان مخلل",
+    "p": 30,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i81",
+    "n": "سلطة خضراء",
+    "p": 25,
+    "unit": "",
+    "img": "dish-salata-khadra.jpg"
+   },
+   {
+    "id": "i82",
+    "n": "طرشي",
+    "p": 25,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i83",
+    "n": "طماطم متبلة",
+    "p": 25,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i84",
+    "n": "دقوس",
+    "p": 25,
+    "unit": "",
+    "img": ""
+   },
+   {
+    "id": "i85",
+    "n": "عيش محمص على الفحم",
+    "p": 20,
+    "unit": "",
+    "img": ""
+   }
+  ]
+ }
+];
+var ZONES = [["دار الاشارة",40],["دار المدفعية",40],["سيتي ستارز",40],["عمارات السعودية",40],["عمارات رامو",40],["عمارات الفرسان",40],["نادي الفروسية",40],["السبع عمارات",40],["تيفولي دووم",40],["احمد فخري",40],["مكرم عبيد",40],["عباس العقاد",40],
+["الميرغني",50],["عمر ابن الخطاب",50],["مستشفى الطيران",50],["ميدان تريومف",50],["سانت فاتيما",50],["عمار بن ياسر",50],["ميدان الحجاز",50],["ميدان سفير",50],["ميدان المحكمة",50],["ميدان صلاح الدين",50],["ميدان الاسماعيلية",50],["الطيران",50],["حسن المأمون",50],["مساكن شيراتون",50],["حسن الشريف",50],["مصطفى النحاس",50],["سمير عبدالرؤف",50],["الحديقة الدولية",50],["الحي السابع",50],["حي السفارات",50],["الحي الثامن",50],["التبة",50],["احمد الزمر",50],
+["الكوربة",60],["ميدان روكسي",60],["الخليفة المأمون",60],["عمارات العبور",60],["عبد الحميد بدوي",60],["الشيراتون",60],["الحي العاشر",60],["حي الواحة",60],["زهراء مدينة نصر",60],
+["منشية البكري",65],
+["حدائق القبة",70],["النزهة الجديدة",70],
+["جاردينيا",75],["تاج سلطان",75],["العباسية",75],
+["حلمية الزيتون",80],["جسر السويس",80],
+["المطرية",90],
+["التجمع الأول",100],["التجمع الثالث",100],["التجمع الخامس",100],["الرحاب",100]]
+;
+/* ===== إعدادات ===== */
+var WEBHOOK = 'https://script.google.com/macros/s/AKfycbwDpkqIZAz3hJfpSK_jlT3CV3DR-QP0f6PFWrNOP8IkG67nkWpgfPuJAThf4Qro_7rC_Q/exec';                 // لينك Apps Script /exec — يتحط بعد الديبلوي
+var MIN_ORDER = 300;              // أقل أوردر بالجنيه (قبل التوصيل)
+var OPEN_MIN = 14 * 60 + 30;      // 2:30 الضهر
+var CLOSE_MIN = 23 * 60 + 30;     // 11:30 بالليل
+var src = new URLSearchParams(location.search).get('src') || 'site';
+
+var FEES = {};
+ZONES.forEach(function (z) { FEES[z[0]] = z[1]; });
+
+var items = {};
+MENU.forEach(function (c) { c.items.forEach(function (it) { items[it.id] = it; }); });
+
+var cart = {};   // id -> qty
+
+/* ===== مواعيد ===== */
+function cairoMinutes() {
+  var s = new Date().toLocaleString('en-US', { timeZone: 'Africa/Cairo', hour12: false, hour: '2-digit', minute: '2-digit' });
+  var p = s.split(':');
+  return parseInt(p[0], 10) % 24 * 60 + parseInt(p[1], 10);
+}
+function isOpenNow() { var m = cairoMinutes(); return m >= OPEN_MIN && m < CLOSE_MIN; }
+
+function hoursUI() {
+  var open = isOpenNow();
+  document.getElementById('hoursNote').innerHTML = open
+    ? '🟢 <b>مفتوح دلوقتي</b> — بنستقبل الأوردرات لحد 11:30 بالليل'
+    : '🔴 <b>استقبال الأوردرات مقفول</b> — بنستقبل يومياً من 2:30 الضهر لحد 11:30 بالليل';
+  var b = document.getElementById('openSheet');
+  if (b && !orderSent) {
+    b.disabled = !open;
+    b.textContent = open ? 'اتمم الأوردر' : 'الأوردرات تفتح 2:30 الضهر';
+  }
+}
+
+/* ===== بناء المنيو ===== */
+function fmt(n) { return n + ' ج'; }
+
+function buildMenu() {
+  var cats = document.getElementById('cats');
+  var menu = document.getElementById('menu');
+  var chips = '<button type="button" class="on" data-cat="all">الكل</button>';
+  var html = '';
+  MENU.forEach(function (c) {
+    chips += '<button type="button" data-cat="' + c.key + '">' + c.label + '</button>';
+    html += '<section data-sec="' + c.key + '"><h2 class="cat">' + c.label + '</h2>';
+    c.items.forEach(function (it) {
+      html += '<div class="item">' +
+        '<div><h3>' + it.n + '</h3><span class="price">' + fmt(it.p) +
+        (it.unit ? ' <small>' + it.unit + '</small>' : '') + '</span></div>' +
+        '<div class="step">' +
+        '<button type="button" data-act="inc" data-id="' + it.id + '" aria-label="زود">+</button>' +
+        '<span class="q" id="q_' + it.id + '">0</span>' +
+        '<button type="button" data-act="dec" data-id="' + it.id + '" disabled aria-label="قلل">−</button>' +
+        '</div></div>';
+    });
+    html += '</section>';
+  });
+  cats.innerHTML = chips;
+  menu.innerHTML = html;
+
+  cats.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    [].forEach.call(cats.children, function (c) { c.classList.toggle('on', c === b); });
+    var k = b.dataset.cat;
+    [].forEach.call(menu.children, function (s) {
+      s.style.display = (k === 'all' || s.dataset.sec === k) ? '' : 'none';
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  menu.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-act]'); if (!b) return;
+    change(b.dataset.id, b.dataset.act === 'inc' ? 1 : -1);
+  });
+}
+
+function change(id, d) {
+  if (d > 0 && window.ehPixel) {
+    window.ehPixel.track('AddToCart', {
+      content_name: items[id].n, content_type: 'product',
+      value: items[id].p, currency: 'EGP'
+    });
+  }
+  var q = (cart[id] || 0) + d;
+  if (q <= 0) delete cart[id]; else cart[id] = q;
+  document.getElementById('q_' + id).textContent = cart[id] || 0;
+  var dec = document.querySelector('button[data-act="dec"][data-id="' + id + '"]');
+  if (dec) dec.disabled = !cart[id];
+  renderBar();
+}
+
+function totals() {
+  var n = 0, t = 0;
+  Object.keys(cart).forEach(function (id) { n += cart[id]; t += cart[id] * items[id].p; });
+  return { n: n, t: t };
+}
+
+function renderBar() {
+  var x = totals();
+  var bar = document.getElementById('bar');
+  bar.hidden = x.n === 0;
+  document.getElementById('barCount').textContent = x.n + ' صنف';
+  document.getElementById('barTotal').textContent = fmt(x.t);
+  hoursUI();
+}
+
+/* ===== شيت الطلب ===== */
+var orderSent = false;
+
+function zoneOptions() {
+  var byFee = {};
+  ZONES.forEach(function (z) { (byFee[z[1]] = byFee[z[1]] || []).push(z[0]); });
+  return Object.keys(byFee).sort(function (a, b) { return a - b; }).map(function (fee) {
+    return '<optgroup label="توصيل ' + fee + ' ج">' +
+      byFee[fee].map(function (n) { return '<option value="' + n + '">' + n + '</option>'; }).join('') +
+      '</optgroup>';
+  }).join('');
+}
+
+function openSheet() {
+  var x = totals();
+  if (!x.n) return;
+  if (!isOpenNow()) { hoursUI(); return; }
+  if (window.ehPixel) {
+    window.ehPixel.track('InitiateCheckout', { num_items: x.n, value: x.t, currency: 'EGP' });
+  }
+  var lines = Object.keys(cart).map(function (id) {
+    return '<div><span>' + items[id].n + ' × ' + cart[id] + '</span><span>' + fmt(cart[id] * items[id].p) + '</span></div>';
+  }).join('');
+
+  document.getElementById('sheetIn').innerHTML =
+    '<h3>مراجعة الأوردر <button class="x" type="button" id="closeSheet" aria-label="اقفل">×</button></h3>' +
+    (x.t < MIN_ORDER ? '<p class="closed">أقل أوردر للتوصيل ' + MIN_ORDER + ' ج. ناقصك ' + (MIN_ORDER - x.t) + ' ج.</p>' : '') +
+    '<div class="lines">' + lines + '</div>' +
+    '<div class="tot"><span>الأصناف</span><span id="sSub">' + fmt(x.t) + '</span></div>' +
+    '<label for="cname">اسمك</label><input id="cname" autocomplete="name" placeholder="الاسم بالكامل">' +
+    '<label for="phone">رقم الموبايل</label><input id="phone" inputmode="numeric" autocomplete="tel" placeholder="01xxxxxxxxx">' +
+    '<label for="area">منطقة التوصيل</label><select id="area"><option value="">اختار المنطقة</option>' + zoneOptions() + '</select>' +
+    '<label for="addr">العنوان بالتفصيل</label><textarea id="addr" placeholder="الشارع — العمارة — الدور — الشقة — علامة مميزة"></textarea>' +
+    '<label for="notes">ملاحظات (اختياري)</label><textarea id="notes" placeholder="أي طلب خاص"></textarea>' +
+    '<div class="tot" style="border-top:1px solid var(--line);margin-top:16px">' +
+    '<span>الإجمالي مع التوصيل</span><span id="sTotal">' + fmt(x.t) + '</span></div>' +
+    '<button class="wabtn" id="sendOrder" type="button" style="width:100%;margin-top:6px">أكد الأوردر</button>' +
+    '<div class="msg" id="err"></div>' +
+    '<p class="note">الدفع كاش عند الاستلام. هنكلمك على الرقم ده لتأكيد الأوردر.</p>';
+
+  document.getElementById('mask').classList.add('on');
+  document.getElementById('sheet').classList.add('on');
+  document.getElementById('sheet').setAttribute('aria-hidden', 'false');
+
+  document.getElementById('closeSheet').addEventListener('click', closeSheet);
+  document.getElementById('area').addEventListener('change', syncTotal);
+  document.getElementById('sendOrder').addEventListener('click', submit);
+  ['cname', 'phone', 'addr', 'area'].forEach(function (f) {
+    document.getElementById(f).addEventListener('input', function () { this.classList.remove('err'); hideErr(); });
+  });
+  syncTotal();
+}
+
+function closeSheet() {
+  document.getElementById('mask').classList.remove('on');
+  document.getElementById('sheet').classList.remove('on');
+  document.getElementById('sheet').setAttribute('aria-hidden', 'true');
+}
+
+function syncTotal() {
+  var area = document.getElementById('area').value;
+  var fee = FEES[area] || 0;
+  var x = totals();
+  document.getElementById('sTotal').textContent = fmt(x.t + fee) + (area ? '' : ' + التوصيل');
+}
+
+function showErr(m) { var e = document.getElementById('err'); e.textContent = m; e.classList.add('on'); }
+function hideErr() { var e = document.getElementById('err'); if (e) e.classList.remove('on'); }
+function bad(id, m) {
+  var el = document.getElementById(id);
+  el.classList.add('err'); showErr(m); el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+function validPhone(p) { return /^01[0125][0-9]{8}$/.test(p); }
+
+function submit() {
+  if (orderSent) return;
+  if (!isOpenNow()) { hoursUI(); showErr('استقبال الأوردرات مقفول دلوقتي. بنستقبل من 2:30 الضهر لحد 11:30 بالليل.'); return; }
+  var x = totals();
+  if (!x.n) return;
+  if (x.t < MIN_ORDER) { showErr('أقل أوردر للتوصيل ' + MIN_ORDER + ' ج. ناقصك ' + (MIN_ORDER - x.t) + ' ج.'); return; }
+
+  var cname = document.getElementById('cname').value.replace(/\s+/g, ' ').trim();
+  var phone = document.getElementById('phone').value.replace(/\D/g, '');
+  var area = document.getElementById('area').value;
+  var addr = document.getElementById('addr').value.trim();
+  var notes = document.getElementById('notes').value.trim();
+  hideErr();
+
+  if (cname.length < 2) return bad('cname', 'اكتب اسمك عشان نعرف الأوردر باسم مين.');
+  if (!validPhone(phone)) return bad('phone', 'اكتب رقم موبايل صحيح — 11 رقم ويبدأ بـ01.');
+  if (!area) return bad('area', 'اختار منطقة التوصيل. التوصيل متاح في المناطق اللي في القايمة بس.');
+  if (addr.length < 8) return bad('addr', 'اكتب العنوان بالتفصيل عشان الدليفري يوصلك.');
+
+  if (!WEBHOOK) { showErr('استقبال الأوردرات مش مفعّل دلوقتي. كلمنا على 01030080098.'); return; }
+
+  var fee = FEES[area];
+  var payload = {
+    client_order_id: ElHadraOrders.createClientOrderId(),
+    items: Object.keys(cart).map(function (id) {
+      return { name: items[id].n, opt: items[id].unit || '', qty: cart[id], price: items[id].p };
+    }),
+    subtotal: x.t, delivery: fee, total: x.t + fee, area: area,
+    customer_name: cname,
+    address: '👤 ' + cname + ' — 📞 ' + phone + ' — ' + addr,
+    phone: phone, gps: '', notes: notes, src: src
+  };
+
+  orderSent = true;
+  ElHadraOrders.submitWithConfirmation({
+    webhook: WEBHOOK, payload: payload,
+    container: document.getElementById('sheetIn'),
+    name: cname, total: x.t + fee, area: area,
+    onConfirmed: function () {
+      if (!window.ehPixel) return;
+      window.ehPixel.track('Purchase', {
+        value: x.t + fee, currency: 'EGP', num_items: x.n,
+        content_type: 'product',
+        contents: payload.items.map(function (it) {
+          return { id: it.name, quantity: it.qty, item_price: it.price };
+        })
+      });
+    }
+  });
+}
+
+document.getElementById('openSheet').addEventListener('click', openSheet);
+document.getElementById('mask').addEventListener('click', closeSheet);
+
+buildMenu(); renderBar(); hoursUI(); setInterval(hoursUI, 60000);
+</script>
+</body>
+</html>
