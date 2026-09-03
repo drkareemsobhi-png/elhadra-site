@@ -26,7 +26,11 @@ header.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);bor
 .hours{padding:12px 0;font-size:12px;color:var(--muted);border-bottom:1px solid var(--line)}
 .hours b{color:var(--orange-deep)}
 h1{font-family:"Amiri",serif;font-size:34px;margin:26px 0 4px;color:var(--orange)}
-.sub{margin:0 0 18px;font-size:13px;color:var(--muted)}
+.sub{margin:0 0 12px;font-size:13px;color:var(--muted)}
+.discount-badge{margin:0 0 18px;padding:10px 14px;background:var(--surface);border:1px solid var(--orange);border-radius:8px;font-size:13px;color:var(--ink)}
+.discount-badge b{color:var(--orange-deep);font-weight:900}
+.bar .sum b s{color:var(--muted);font-weight:600;font-size:13px;margin-inline-end:6px}
+.tot.discount-row{color:var(--orange-deep);padding-top:0}
 .cats{position:sticky;top:66px;z-index:40;display:flex;gap:8px;overflow-x:auto;padding:12px 0;background:var(--bg);border-bottom:1px solid var(--line);scrollbar-width:none}
 .cats::-webkit-scrollbar{display:none}
 .cats button{flex:0 0 auto;padding:9px 14px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:700 12px "Cairo",sans-serif;cursor:pointer;border-radius:999px}
@@ -85,6 +89,7 @@ textarea{min-height:74px;resize:vertical}
   <div class="hours" id="hoursNote"></div>
   <h1>اطلب من الحضرة</h1>
   <p class="sub">الدفع كاش عند الاستلام · الأسعار من غير خدمة</p>
+  <p class="discount-badge"><b>خصم 20٪</b> على كل أوردر من الموقع — بيتخصم أوتوماتيك عند التأكيد، من غير كود</p>
 </div>
 
 <div class="shell"><div class="cats" id="cats"></div></div>
@@ -824,7 +829,8 @@ var ZONES = [["دار الاشارة",40],["دار المدفعية",40],["سي�
 ;
 /* ===== إعدادات ===== */
 var WEBHOOK = 'https://script.google.com/macros/s/AKfycbwDpkqIZAz3hJfpSK_jlT3CV3DR-QP0f6PFWrNOP8IkG67nkWpgfPuJAThf4Qro_7rC_Q/exec';                 // لينك Apps Script /exec — يتحط بعد الديبلوي
-var MIN_ORDER = 300;              // أقل أوردر بالجنيه (قبل التوصيل)
+var MIN_ORDER = 300;              // أقل أوردر بالجنيه (قبل الخصم وقبل التوصيل)
+var DISCOUNT_PCT = 20;            // خصم دائم على الأكل بس — التوصيل من غير خصم
 var OPEN_MIN = 14 * 60 + 30;      // 2:30 الضهر
 var CLOSE_MIN = 23 * 60 + 30;     // 11:30 بالليل
 var src = new URLSearchParams(location.search).get('src') || 'site';
@@ -923,15 +929,16 @@ function change(id, d) {
 function totals() {
   var n = 0, t = 0;
   Object.keys(cart).forEach(function (id) { n += cart[id]; t += cart[id] * items[id].p; });
-  return { n: n, t: t };
+  var discount = Math.round(t * DISCOUNT_PCT / 100);
+  return { n: n, t: t, discount: discount, afterDiscount: t - discount };
 }
 
 function renderBar() {
   var x = totals();
   var bar = document.getElementById('bar');
   bar.hidden = x.n === 0;
-  document.getElementById('barCount').textContent = x.n + ' صنف';
-  document.getElementById('barTotal').textContent = fmt(x.t);
+  document.getElementById('barCount').textContent = x.n + ' صنف · بعد خصم ' + DISCOUNT_PCT + '٪';
+  document.getElementById('barTotal').innerHTML = '<s>' + fmt(x.t) + '</s> ' + fmt(x.afterDiscount);
   hoursUI();
 }
 
@@ -949,7 +956,7 @@ function openSheet() {
   if (!x.n) return;
   if (!isOpenNow()) { hoursUI(); return; }
   if (window.ehPixel) {
-    window.ehPixel.track('InitiateCheckout', { num_items: x.n, value: x.t, currency: 'EGP' });
+    window.ehPixel.track('InitiateCheckout', { num_items: x.n, value: x.afterDiscount, currency: 'EGP' });
   }
   var lines = Object.keys(cart).map(function (id) {
     return '<div><span>' + items[id].n + ' × ' + cart[id] + '</span><span>' + fmt(cart[id] * items[id].p) + '</span></div>';
@@ -959,7 +966,8 @@ function openSheet() {
     '<h3>مراجعة الأوردر <button class="x" type="button" id="closeSheet" aria-label="اقفل">×</button></h3>' +
     (x.t < MIN_ORDER ? '<p class="closed">أقل أوردر للتوصيل ' + MIN_ORDER + ' ج. ناقصك ' + (MIN_ORDER - x.t) + ' ج.</p>' : '') +
     '<div class="lines">' + lines + '</div>' +
-    '<div class="tot"><span>الأصناف</span><span id="sSub">' + fmt(x.t) + '</span></div>' +
+    '<div class="tot"><span>الأكل</span><span id="sSub">' + fmt(x.t) + '</span></div>' +
+    '<div class="tot discount-row"><span>خصم ' + DISCOUNT_PCT + '٪</span><span id="sDisc">−' + fmt(x.discount) + '</span></div>' +
     '<label for="cname">اسمك</label><input id="cname" autocomplete="name" placeholder="الاسم بالكامل">' +
     '<label for="phone">رقم الموبايل</label><input id="phone" inputmode="numeric" autocomplete="tel" placeholder="01xxxxxxxxx">' +
     '<label for="area">منطقة التوصيل</label><select id="area"><option value="">اختار المنطقة</option>' + zoneOptions() + '</select>' +
@@ -967,7 +975,7 @@ function openSheet() {
     '<label for="notes">ملاحظات (اختياري)</label><textarea id="notes" placeholder="أي طلب خاص"></textarea>' +
     '<div class="tot"><span>التوصيل</span><span id="sFee">اختار المنطقة</span></div>' +
     '<div class="tot" style="border-top:1px solid var(--line);margin-top:16px">' +
-    '<span>الإجمالي مع التوصيل</span><span id="sTotal">' + fmt(x.t) + '</span></div>' +
+    '<span>المطلوب</span><span id="sTotal">' + fmt(x.afterDiscount) + '</span></div>' +
     '<button class="wabtn" id="sendOrder" type="button" style="width:100%;margin-top:6px">أكد الأوردر</button>' +
     '<div class="msg" id="err"></div>' +
     '<p class="note">الدفع كاش عند الاستلام. هنكلمك على الرقم ده لتأكيد الأوردر.</p>';
@@ -996,7 +1004,7 @@ function syncTotal() {
   var fee = FEES[area] || 0;
   var x = totals();
   document.getElementById('sFee').textContent = area ? fmt(fee) : 'اختار المنطقة';
-  document.getElementById('sTotal').textContent = fmt(x.t + fee) + (area ? '' : ' + التوصيل');
+  document.getElementById('sTotal').textContent = fmt(x.afterDiscount + fee) + (area ? '' : ' + التوصيل');
 }
 
 function showErr(m) { var e = document.getElementById('err'); e.textContent = m; e.classList.add('on'); }
@@ -1032,9 +1040,10 @@ function submit() {
   var payload = {
     client_order_id: ElHadraOrders.createClientOrderId(),
     items: Object.keys(cart).map(function (id) {
-      return { name: items[id].n, opt: items[id].unit || '', qty: cart[id], price: items[id].p };
+      return { id: id, name: items[id].n, opt: items[id].unit || '', qty: cart[id], price: items[id].p };
     }),
-    subtotal: x.t, delivery: fee, total: x.t + fee, area: area,
+    subtotal: x.t, discount: x.discount, discount_pct: DISCOUNT_PCT,
+    delivery: fee, total: x.afterDiscount + fee, area: area,
     customer_name: cname,
     address: '👤 ' + cname + ' — 📞 ' + phone + ' — ' + addr,
     phone: phone, gps: '', notes: notes, src: src
@@ -1044,11 +1053,11 @@ function submit() {
   ElHadraOrders.submitWithConfirmation({
     webhook: WEBHOOK, payload: payload,
     container: document.getElementById('sheetIn'),
-    name: cname, total: x.t + fee, area: area,
+    name: cname, total: x.afterDiscount + fee, area: area,
     onConfirmed: function () {
       if (!window.ehPixel) return;
       window.ehPixel.track('Purchase', {
-        value: x.t + fee, currency: 'EGP', num_items: x.n,
+        value: x.afterDiscount + fee, currency: 'EGP', num_items: x.n,
         content_type: 'product',
         contents: payload.items.map(function (it) {
           return { id: it.name, quantity: it.qty, item_price: it.price };
