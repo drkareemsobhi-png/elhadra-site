@@ -89,7 +89,6 @@ textarea{min-height:74px;resize:vertical}
   <div class="hours" id="hoursNote"></div>
   <h1>اطلب من الحضرة</h1>
   <p class="sub">الدفع كاش عند الاستلام · الأسعار من غير خدمة</p>
-  <p class="discount-badge"><b>خصم 10٪</b> على كل أوردر من الموقع — بيتخصم أوتوماتيك عند التأكيد، من غير كود</p>
 </div>
 
 <div class="shell"><div class="cats" id="cats"></div></div>
@@ -830,7 +829,7 @@ var ZONES = [["دار الاشارة",40],["دار المدفعية",40],["سي�
 /* ===== إعدادات ===== */
 var WEBHOOK = 'https://script.google.com/macros/s/AKfycbwDpkqIZAz3hJfpSK_jlT3CV3DR-QP0f6PFWrNOP8IkG67nkWpgfPuJAThf4Qro_7rC_Q/exec';                 // لينك Apps Script /exec — يتحط بعد الديبلوي
 var MIN_ORDER = 300;              // أقل أوردر بالجنيه (قبل الخصم وقبل التوصيل)
-var DISCOUNT_PCT = 10;            // خصم دائم على الأكل بس — التوصيل من غير خصم
+var DISCOUNT_PCT = 0;             // الخصم اتشال 2026-09-05 بقرار كريم. 0 = مفيش خصم. أي رقم > 0 بيرجّع الخصم في الحساب والعرض
 var OPEN_MIN = 14 * 60 + 30;      // 2:30 الضهر
 var CLOSE_MIN = 23 * 60 + 30;     // 11:30 بالليل
 var src = new URLSearchParams(location.search).get('src') || 'site';
@@ -937,8 +936,13 @@ function renderBar() {
   var x = totals();
   var bar = document.getElementById('bar');
   bar.hidden = x.n === 0;
-  document.getElementById('barCount').textContent = x.n + ' صنف · بعد خصم ' + DISCOUNT_PCT + '٪';
-  document.getElementById('barTotal').innerHTML = '<s>' + fmt(x.t) + '</s> ' + fmt(x.afterDiscount);
+  if (x.discount > 0) {
+    document.getElementById('barCount').textContent = x.n + ' صنف · بعد خصم ' + DISCOUNT_PCT + '٪';
+    document.getElementById('barTotal').innerHTML = '<s>' + fmt(x.t) + '</s> ' + fmt(x.afterDiscount);
+  } else {
+    document.getElementById('barCount').textContent = x.n + ' صنف';
+    document.getElementById('barTotal').textContent = fmt(x.t);
+  }
   hoursUI();
 }
 
@@ -967,7 +971,7 @@ function openSheet() {
     (x.t < MIN_ORDER ? '<p class="closed">أقل أوردر للتوصيل ' + MIN_ORDER + ' ج. ناقصك ' + (MIN_ORDER - x.t) + ' ج.</p>' : '') +
     '<div class="lines">' + lines + '</div>' +
     '<div class="tot"><span>الأكل</span><span id="sSub">' + fmt(x.t) + '</span></div>' +
-    '<div class="tot discount-row"><span>خصم ' + DISCOUNT_PCT + '٪</span><span id="sDisc">−' + fmt(x.discount) + '</span></div>' +
+    (x.discount > 0 ? '<div class="tot discount-row"><span>خصم ' + DISCOUNT_PCT + '٪</span><span id="sDisc">−' + fmt(x.discount) + '</span></div>' : '') +
     '<label for="cname">اسمك</label><input id="cname" autocomplete="name" placeholder="الاسم بالكامل">' +
     '<label for="phone">رقم الموبايل</label><input id="phone" inputmode="numeric" autocomplete="tel" placeholder="01xxxxxxxxx">' +
     '<label for="area">منطقة التوصيل</label><select id="area"><option value="">اختار المنطقة</option>' + zoneOptions() + '</select>' +
