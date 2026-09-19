@@ -856,12 +856,12 @@ var src = new URLSearchParams(location.search).get('src') || 'site';
 
 /* ===== كود الخصم =====
    الكودات سرية (عروض شركات) ومش مكتوبة في الصفحة خالص — ولا حتى بصمتها.
-   السيرفر هو اللي بيتأكد (action=coupon_check) وعليه حد لمحاولات الكود الغلط.
+   السيرفر هو اللي بيتأكد (action=coupon_check)، ومن غير حد محاولات (قرار كريم — شوف Code.gs).
    كل محاولة ليها رقم (couponSeq)، والنتيجة القديمة بتتجاهل لو فيه محاولة أحدث. */
 function normCode(c) { return String(c || '').replace(/\s+/g, '').toUpperCase().slice(0, 40); }
 var coupon = '', couponPct = 0;   // الكود المتأكد منه بس
 var couponText = '';              // آخر كود اتكتب أو جه من اللينك
-var couponState = '';             // '' | busy | ok | bad | limit | err
+var couponState = '';             // '' | busy | ok | bad | err
 var couponSeq = 0;
 function activePct() { return Math.max(DISCOUNT_PCT, couponPct); }
 function storeCoupon(c) { try { if (c) sessionStorage.setItem('ehCoupon', c); else sessionStorage.removeItem('ehCoupon'); } catch (e) {} }
@@ -887,13 +887,15 @@ function runCoupon(c) {
   var seq = ++couponSeq;
   couponText = c; coupon = ''; couponPct = 0;
   couponState = c && WEBHOOK ? 'busy' : '';
+  // الكود الجديد بيتخزن من أول المحاولة — لو النت وقع وحصل reload، بيتجرب هو
+  // تاني، مش كود قديم كان متأكد منه قبله.
+  storeCoupon(couponState ? c : '');
   refreshCoupon();
-  if (!couponState) { storeCoupon(''); return; }
+  if (!couponState) return;
   checkCoupon(c, function (r) {
     if (seq !== couponSeq) return;
-    if (r && r.ok && r.valid && r.pct > 0) { coupon = c; couponPct = r.pct; couponState = 'ok'; storeCoupon(c); }
+    if (r && r.ok && r.valid && r.pct > 0) { coupon = c; couponPct = r.pct; couponState = 'ok'; }
     else if (r && r.ok) { couponState = 'bad'; storeCoupon(''); }
-    else if (r && r.code === 'RATE_LIMIT') couponState = 'limit';
     else couponState = 'err';   // النت أو السيرفر — الكود يفضل متخزن عشان يتجرب تاني
     refreshCoupon();
   });
@@ -902,7 +904,6 @@ function runCoupon(c) {
 var COUPON_MSGS = {
   busy: ['', 'بنتأكد من الكود…'],
   bad: ['bad', 'الكود ده مش صحيح. اتأكد منه وجرب تاني.'],
-  limit: ['bad', 'محاولات كتير على الكود. جرب تاني بعد شوية.'],
   err: ['bad', 'مقدرناش نتأكد من الكود دلوقتي. دوس «طبّق» تاني.']
 };
 function refreshCoupon() {
