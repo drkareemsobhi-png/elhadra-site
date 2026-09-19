@@ -869,7 +869,7 @@ function storeCoupon(c) { try { if (c) sessionStorage.setItem('ehCoupon', c); el
 function checkCoupon(c, cb) {
   var name = 'ehCoupon_' + Math.random().toString(36).slice(2, 12);
   var s = document.createElement('script'), done = false;
-  var timer = setTimeout(function () { finish(null); }, 15000);
+  var timer = setTimeout(function () { finish(null); }, 10000);
   function finish(r) {
     if (done) return; done = true; clearTimeout(timer);
     try { delete window[name]; } catch (e) { window[name] = undefined; }
@@ -892,8 +892,16 @@ function runCoupon(c) {
   storeCoupon(couponState ? c : '');
   refreshCoupon();
   if (!couponState) return;
-  checkCoupon(c, function (r) {
+  // لو النت أو Apps Script وقع (null) بنعيد مرة واحدة بعد ثانية بـcallback جديد —
+  // أول فشل بعد النشر في 2026-09-19 كان عابر. الفحص GET من غير أي أثر.
+  var retried = false;
+  checkCoupon(c, function onResult(r) {
     if (seq !== couponSeq) return;
+    if (!r && !retried) {
+      retried = true;
+      setTimeout(function () { if (seq === couponSeq) checkCoupon(c, onResult); }, 900);
+      return;
+    }
     if (r && r.ok && r.valid && r.pct > 0) { coupon = c; couponPct = r.pct; couponState = 'ok'; }
     else if (r && r.ok) { couponState = 'bad'; storeCoupon(''); }
     else couponState = 'err';   // النت أو السيرفر — الكود يفضل متخزن عشان يتجرب تاني
