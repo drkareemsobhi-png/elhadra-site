@@ -970,9 +970,12 @@ function buildMenu() {
       var thumb = it.img
         ? '<div class="thumb"><img src="img/' + it.img + '" alt="' + esc(it.n) + '" loading="lazy" width="86" height="86"></div>'
         : '<div class="thumb empty" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 30h32M12 30a12 12 0 0 1 24 0M24 18v-4M21 14h6"/></svg></div>';
+      /* نفس قاعدة المنيو الرئيسية: الكارت اسم وسعر بس، إلا الصواني
+         وتنورة الحضرة — دول وجبات مجمعة والوصف بيوضح محتوياتها */
+      var showDesc = !!it.d && (it.n.indexOf('صينية ') === 0 || it.n === 'تنورة الحضرة');
       html += '<div class="item">' + thumb +
         '<div><h3>' + esc(it.n) + '</h3>' +
-        (it.d ? '<p class="desc">' + esc(it.d) + '</p>' : '') +
+        (showDesc ? '<p class="desc">' + esc(it.d) + '</p>' : '') +
         '<span class="price">' + fmt(it.p) +
         (it.unit ? ' <small>' + it.unit + '</small>' : '') + '</span></div>' +
         '<div class="step">' +

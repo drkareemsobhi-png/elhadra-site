@@ -94,6 +94,7 @@ figure { margin: 0; }
 .dish-card .price small { display: block; color: var(--muted); font-size: 7px; }
 .dish-card .tag { display: inline-block; margin-top: 12px; padding: 5px 8px; border: 1px solid var(--line); color: var(--orange-deep); font-size: 8px; }
 .dish-card.no-media .dish-card-body { min-height: 142px; }
+.dish-card.name-only .dish-card-body { min-height: 104px; }
 .dish-card.no-media { box-shadow: none; background: var(--surface); }
 .menu-note { margin: 28px 0 0; color: var(--muted); font-size: 10px; text-align: center; }
 
