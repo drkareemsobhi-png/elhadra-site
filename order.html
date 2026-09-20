@@ -1066,7 +1066,7 @@ function openSheet() {
     '<h3>مراجعة الأوردر <button class="x" type="button" id="closeSheet" aria-label="اقفل">×</button></h3>' +
     (x.t < MIN_ORDER ? '<p class="closed">أقل أوردر للتوصيل ' + MIN_ORDER + ' ج. ناقصك ' + (MIN_ORDER - x.t) + ' ج.</p>' : '') +
     '<div class="lines">' + lines + '</div>' +
-    '<div class="tot"><span>الأكل</span><span id="sSub">' + fmt(x.t) + '</span></div>' +
+    '<div class="tot"><span>الأوردر</span><span id="sSub">' + fmt(x.t) + '</span></div>' +
     '<div class="tot discount-row" id="sDiscRow"' + (x.discount > 0 ? '' : ' hidden') + '><span id="sDiscLbl"></span><span id="sDisc"></span></div>' +
     '<label for="coupon">كود خصم (اختياري)</label>' +
     '<div class="coupon-in"><input id="coupon" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="اكتب الكود" value="' + esc(couponText) + '">' +
@@ -1079,10 +1079,10 @@ function openSheet() {
     '<label for="notes">ملاحظات (اختياري)</label><textarea id="notes" placeholder="أي طلب خاص"></textarea>' +
     '<div class="tot"><span>التوصيل</span><span id="sFee">اختار المنطقة</span></div>' +
     '<div class="tot" style="border-top:1px solid var(--line);margin-top:16px">' +
-    '<span>المطلوب</span><span id="sTotal">' + fmt(x.afterDiscount) + '</span></div>' +
+    '<span>الإجمالي</span><span id="sTotal">' + fmt(x.afterDiscount) + '</span></div>' +
     '<button class="wabtn" id="sendOrder" type="button" style="width:100%;margin-top:6px">أكد الأوردر</button>' +
     '<div class="msg" id="err"></div>' +
-    '<p class="note">الدفع كاش عند الاستلام. هنكلمك على الرقم ده لتأكيد الأوردر.</p>';
+    '<p class="note">التوصيل خلال ٦٠ لـ٩٠ دقيقة.</p>';
 
   document.getElementById('mask').classList.add('on');
   document.getElementById('sheet').classList.add('on');

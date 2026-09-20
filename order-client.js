@@ -125,8 +125,10 @@
       '<h3 style="justify-content:center;margin:18px 0 8px">استلمنا أوردرك!</h3>' +
       (orderId ? '<p style="font-size:13px;font-weight:900;margin-bottom:6px">رقم الأوردر: ' + escapeHtml(orderId) + '</p>' : '') +
       '<p style="font-size:16px;font-weight:800;margin-bottom:6px">الإجمالي: ' + escapeHtml(total) + ' جنيه — الدفع كاش عند الاستلام</p>' +
+      // الشاشة دي مابتظهرش غير بعد ما السيرفر يأكد استلام الأوردر،
+      // فكلمة «تم تأكيد» هنا معلومة مؤكدة مش وعد.
       '<p style="font-size:14.5px;opacity:.75;line-height:1.9">تمام يا ' + escapeHtml(options.name) +
-      '! أوردرك اتسجل وجاري تأكيده وتجهيزه،<br>والدليفري يوصلك على ' + escapeHtml(options.area) + '.</p>' +
+      '! تم تأكيد الأوردر والتوصيل خلال ٦٠ لـ٩٠ دقيقة،<br>والدليفري يوصلك على ' + escapeHtml(options.area) + '.</p>' +
       '<button class="wabtn" style="margin-top:22px" onclick="location.reload()">تمام 👌</button>' +
       '</div>';
   }
