@@ -110,6 +110,7 @@ textarea{min-height:74px;resize:vertical}
   <div class="hours" id="hoursNote"></div>
   <h1>اطلب من الحضرة</h1>
   <p class="sub">الدفع كاش عند الاستلام · الأسعار من غير خدمة</p>
+  <p class="discount-badge" id="discBadge" hidden></p>
 </div>
 
 <div class="shell"><div class="cats" id="cats"></div></div>
@@ -852,7 +853,7 @@ var ZONES = [["دار الاشارة",40],["دار المدفعية",40],["سي�
 /* ===== إعدادات ===== */
 var WEBHOOK = 'https://script.google.com/macros/s/AKfycbwDpkqIZAz3hJfpSK_jlT3CV3DR-QP0f6PFWrNOP8IkG67nkWpgfPuJAThf4Qro_7rC_Q/exec';                 // لينك Apps Script /exec — يتحط بعد الديبلوي
 var MIN_ORDER = 300;              // أقل أوردر بالجنيه (قبل الخصم وقبل التوصيل)
-var DISCOUNT_PCT = 0;             // الخصم اتشال 2026-09-05 بقرار كريم. 0 = مفيش خصم. أي رقم > 0 بيرجّع الخصم في الحساب والعرض
+var DISCOUNT_PCT = 25;            // خصم الموقع على الأكل بس (التوصيل من غير خصم) — رجع 2026-11-16 بقرار كريم. 0 = مفيش خصم والبانر بيختفي
 var OPEN_MIN = 14 * 60 + 30;      // 2:30 الضهر
 var CLOSE_MIN = 23 * 60 + 30;     // 11:30 بالليل
 var src = new URLSearchParams(location.search).get('src') || 'site';
@@ -867,6 +868,13 @@ var couponText = '';              // آخر كود اتكتب أو جه من ا�
 var couponState = '';             // '' | busy | ok | bad | err
 var couponSeq = 0;
 function activePct() { return Math.max(DISCOUNT_PCT, couponPct); }
+/* بانر خصم الموقع — بيتكتب من DISCOUNT_PCT عشان الرقم يفضل في مكان واحد */
+(function () {
+  var b = document.getElementById('discBadge');
+  if (!b || !(DISCOUNT_PCT > 0)) return;
+  b.innerHTML = '<b>خصم ' + DISCOUNT_PCT + '٪</b> على كل الأصناف للطلب من الموقع — بيتخصم أوتوماتيك، من غير كود';
+  b.hidden = false;
+})();
 function storeCoupon(c) { try { if (c) sessionStorage.setItem('ehCoupon', c); else sessionStorage.removeItem('ehCoupon'); } catch (e) {} }
 
 function checkCoupon(c, cb) {
@@ -921,7 +929,10 @@ function refreshCoupon() {
   renderBar();
   var el = document.getElementById('couponMsg');
   if (!el) return;   // شيت الأوردر مش مفتوح
-  var m = couponState === 'ok' ? ['ok', 'الكود متطبق — خصم ' + couponPct + '٪ على الأكل.'] : (COUPON_MSGS[couponState] || ['', '']);
+  var okMsg = couponPct > DISCOUNT_PCT
+    ? 'الكود متطبق — خصم ' + couponPct + '٪ على الأكل.'
+    : 'الكود صحيح — وخصم الموقع ' + DISCOUNT_PCT + '٪ أعلى منه، فهو اللي متطبق.';
+  var m = couponState === 'ok' ? ['ok', okMsg] : (COUPON_MSGS[couponState] || ['', '']);
   el.className = 'coupon-msg' + (m[0] ? ' ' + m[0] : '');
   el.textContent = m[1];
   var send = document.getElementById('sendOrder');
