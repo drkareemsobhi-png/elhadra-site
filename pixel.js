@@ -8,6 +8,7 @@
 
    الأحداث:
      PageView          — كل صفحة
+     Src_<المصدر>      — أول صفحة في الجلسة، باسم ?src= (أو fb_click / direct)
      Contact           — ضغط على واتساب أو على رقم التليفون
      AddToCart         — زيادة صنف في صفحة الأوردر
      InitiateCheckout  — فتح شيت البيانات
@@ -27,6 +28,23 @@
 
   w.fbq('init', PIXEL_ID);
   w.fbq('track', 'PageView');
+
+  /* مصدر الزيارة — ميتا بتشيل ?src= من عنوان الـ PageView، فبنبعت المصدر كاسم حدث
+     (Src_fb_auto · Src_fb_kw · …) عشان يتعدّ لكل مصدر لوحده من stats?aggregation=event.
+     مرة واحدة في الجلسة (أول صفحة دخلها). من غير src: fbclid = Src_fb_click، غير كده Src_direct.
+     الاسم بيتنضف لحروف صغيرة وأرقام و_ بس. مفيش أي بيانات شخصية. */
+  try {
+    var seen = false;
+    try { seen = w.sessionStorage.getItem('ehSrcSent') === '1'; } catch (e) {}
+    if (!seen) {
+      var q = new URLSearchParams(w.location.search);
+      var s = (q.get('src') || '').toLowerCase().replace(/[^a-z0-9_]/g, '').slice(0, 40);
+      if (!s) s = q.get('fbclid') ? 'fb_click' : 'direct';
+      var page = /order\.html/.test(w.location.pathname) ? 'order' : 'home';
+      w.fbq('trackCustom', 'Src_' + s, { page: page });
+      try { w.sessionStorage.setItem('ehSrcSent', '1'); } catch (e) {}
+    }
+  } catch (err) {}
 
   /* helper آمن — لو الـ pixel اتبلوك، الموقع يفضل شغال عادي */
   function track(name, params) {
